@@ -1,0 +1,101 @@
+<div *ngIf="!isLogin">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                       <h1 style="text-align: center;">Admin Login</h1> 
+                    </div>
+                    <div class="card-body">
+                        <form #frmLogin="ngForm">
+                          
+                               <table>
+                                <tr>
+                                    <td>
+                                        <h3>Name</h3>
+                                    </td>
+                                    <td>
+                                        <input type="text" name="name" class="form-control" [(ngModel)]="name" required/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h3>Password</h3>
+                                    </td>
+                                    <td>
+                                        <input type="password" name="password" class="form-control" [(ngModel)]="password" required/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align: center;">
+                                        <input type="button" class="btn btn-primary" value="Login" [disabled]="frmLogin.form.invalid" (click)="validateCredentials()"/>
+                     
+                                    </td>
+                                </tr>
+                               </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</div>
+<div *ngIf="isLogin">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <form #frmNew="ngForm" (ngSubmit)="addMedicine(frmNew)">
+                  <table>
+                    <tr>
+                        <th>
+                           <h3>Name</h3> 
+                        </th>
+                        <th>
+                            <h3>Category</h3> 
+                         </th>
+                         <th>
+                            <h3>Price</h3> 
+                         </th>
+                         <th>
+                            <h3>Seller</h3> 
+                         </th>
+                         <th>
+                            <h3>Description</h3> 
+                         </th>
+                         <th>
+                            <h3>Image</h3> 
+                         </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="name" class="form-control" [(ngModel)]="medicine.name" required/>
+                        </td>
+                        <td>
+                            <input type="text" name="category" class="form-control" [(ngModel)]="medicine.category" required/>
+                        </td>
+                        <td>
+                            <input type="text" name="price" class="form-control" [(ngModel)]="medicine.price" required/>
+                        </td>
+                        <td>
+                            <input type="text" name="seller" class="form-control" [(ngModel)]="medicine.seller" required/>
+                        </td>
+                        <td>
+                            <input type="text" name="description" class="form-control" [(ngModel)]="medicine.description" required/>
+                        </td>
+                        <td>
+                           <input type="file" value="select" #selectFile (change)="onFileSelected($event)">
+                        </td>
+                        <input type="submit" value="Add Product"/>
+                    </tr>
+                  </table> 
+                  </form>             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
