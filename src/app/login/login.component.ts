@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Admin } from '../admin';
 import { MedicareService } from '../medicare.service';
 import { Medicine } from '../medicine';
+import { PassingdataService } from '../passingdata.service';
 
 
 
@@ -21,12 +22,14 @@ export class LoginComponent implements OnInit{
   admins:Admin[];
   pAdmin:Admin=new Admin();
   selectedFile:File;
-  
-  constructor(private router:Router,private medicareservice:MedicareService) { }
+  medicineinfo:Medicine[];
+  constructor(private router:Router,private medicareservice:MedicareService,
+    private passingdataservice:PassingdataService) { }
 
   ngOnInit(): void {
-     this.isLogin=false;
+     this.isLogin=true;
      this.getAllAdmins();
+     this.getAllMedicine();
   }
 
   getAllAdmins()
@@ -35,9 +38,24 @@ export class LoginComponent implements OnInit{
     this.medicareservice.GetAllAdmins().subscribe(data =>{
       this.admins=data;
       console.log(this.admins);
+
     });
 
   }
+
+
+ 
+  getAllMedicine()
+  {
+
+    this.medicareservice.GetAllMedicine().subscribe(data =>{
+      this.medicineinfo=data;
+      
+    });
+    console.log(this.medicineinfo);
+  }
+
+
   
   validateCredentials()
   {
@@ -75,12 +93,39 @@ addMedicine(frmNew:NgForm)
   formData.append('file', this.selectedFile, this.selectedFile.name);
   this.medicareservice.UploadDetails(formData).subscribe(data =>{
    
-     this.getAllAdmins();
-     
+     this.getAllMedicine();
+     this.medicine.name="";
+     this.medicine.category="";
+     this.medicine.price=0;
+     this.medicine.description="";
+     this.medicine.url="";
+     this.medicine.seller="";
+
    
    });
 
 }
+
+deleteItem(id:number)
+{
+  let ch=confirm("do you want to delete");
+  if(ch)
+    {
+      this.medicareservice.DeleteItem(id).subscribe(data =>{
+        this.getAllMedicine();
+      });
+    }
+  }
+
+
+  updateItem(id:number)
+  {
+    this.passingdataservice.setId(id);
+    this.passingdataservice.setUpdate(true);
+    this.router.navigate([`update`]);
+  }
+
+
 }
 
 

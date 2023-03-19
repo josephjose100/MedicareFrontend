@@ -45,11 +45,12 @@
 <div *ngIf="isLogin">
 <div class="container-fluid">
     <div class="row">
+        
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
                     <form #frmNew="ngForm" (ngSubmit)="addMedicine(frmNew)">
-                  <table>
+                  <table class="table table-light">
                     <tr>
                         <th>
                            <h3>Name</h3> 
@@ -95,7 +96,60 @@
                   </form>             
                 </div>
             </div>
+            <div class="card">
+                <div class="card-header">
+                    Medicine Details
+                </div>
+                <div class="card-body">
+                    <table class="table table-light" style="text-align: center;">
+                        <tr>
+                            <th >
+                                <h3>Name</h3> 
+                             </th>
+                             <th>
+                                 <h3>Category</h3> 
+                              </th>
+                              <th>
+                                 <h3>Price</h3> 
+                              </th>
+                              <th>
+                                 <h3>Seller</h3> 
+                              </th>
+                              <th>
+                                 <h3>Description</h3> 
+                              </th>
+                              <th>
+                                 <h3>Image</h3> 
+                              </th>
+                              <th>
+                                <h3>Update</h3> 
+                             </th>
+                             <th>
+                                <h3>Delete</h3> 
+                             </th>
+                        </tr>
+                        <tr *ngFor="let medicine of medicineinfo" >
+                            <td>{{medicine.name}}</td>
+                            <td>{{medicine.category}}</td>
+                            <td>{{medicine.price}}</td>
+                            <td>{{medicine.seller}}</td>
+                            <td>{{medicine.description}}</td> 
+                            <td><img class="images" src="{{medicine.url}}" width="200" height="200"></td>
+                            <td>
+                                <input type="button" class="btn btn-info" value="update" (click)="updateItem(medicine.id)"/>
+                            </td>
+                            <td>
+                                <input type="button" class="btn btn-outline-danger" value="delete" (click)=" deleteItem(medicine.id)"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            
+
         </div>
+        
     </div>
 </div>
 </div>

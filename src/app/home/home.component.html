@@ -1,0 +1,82 @@
+
+
+<div class="container-fluid" style="background-color: cyan;">
+    <div class="row">
+        <div class="col-md-2">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" [routerLink]="['/medicine']" style="color:black;">Buy Medicine</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" [routerLink]="['/login']" style="color: black;">Admin</a>
+                
+                </li>
+               
+              </ul>
+        </div>
+        <div class="col-md-7">
+            <div class="card" style="border: none;">
+                <div class="card-header" style="background-color:cyan;border: none;">
+                    <h1 style="text-align: center;color:black;">Medicare</h1>
+                </div>
+                <div class="card-body" style="background-color: cyan;border: none;">
+                    <p>Medicare is one of the leading medicine supplying firm in India based 
+                        in New Delhi.Through this online portal you could search for a variety 
+                    of healthcare products including life saving medicines at an affordable rate.
+                    We also provide a free delivery above purchase of a threshold amount.
+                 </p>
+                </div>  
+                
+          </div>
+            
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  
+                  <div class="carousel-item active">
+                    <img src="assets/health2.png" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="assets/health3.png" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="assets/medicine.png" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+              </div>
+
+
+            
+        </div>
+        <div class="col-md-3">
+           
+                <h3 style="color: black;">Most Selled Products </h3>
+                <br/>
+           
+                    <div class="card" style="background-color: cyan;text-align: center;border-color:darkcyan;">
+                       
+                        <div class="card-body" style="border-color:black ;background-color: cyan;text-align: center;">
+                            
+                                    
+                                        <img class="images" src="{{medicineinfo[0].url}}" width="200" height="200">
+                               
+                                    
+                                      <h4>{{medicineinfo[0].name}}</h4>
+                            
+                        </div>
+                        </div>
+                        <div class="card" style="background-color: cyan;text-align: center;border-color:darkcyan;">
+                       
+                            <div class="card-body" style="border-color:black ;background-color: cyan;text-align: center;">
+                                
+                                        
+                                            <img class="images" src="{{medicineinfo[1].url}}" width="200" height="200">
+                                   
+                                        
+                                          <h4>{{medicineinfo[1].name}}</h4>
+                                
+                            </div>
+                            </div>
+                </div>
+            </div>
+        </div>
+
