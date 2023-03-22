@@ -11,13 +11,15 @@ import { UpdateComponent } from './update/update.component';
 import { HomeComponent } from './home/home.component';
 import { MedicinelistComponent } from './medicinelist/medicinelist.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { CartComponent } from './cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     UpdateComponent,
     HomeComponent,
-    MedicinelistComponent
+    MedicinelistComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

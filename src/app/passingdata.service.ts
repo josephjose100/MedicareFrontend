@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Medicine } from './medicine';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ export class PassingdataService {
 
   id:number;
   update:boolean;
-
+  medicines:Medicine[]=[];
+ 
 
   setId(id:number)
   {
@@ -31,5 +33,38 @@ export class PassingdataService {
     return this.update;
   }
 
+  addMedicine(medicine:Medicine)
+  {
+    this.medicines.push(medicine);
+    console.log(medicine);
+  
+  }
+
+ /* deleteMedicine(medicine1:Medicine)
+  {
+    for(this.i=0;this.i<this.medicines.length;this.i++)
+    {
+       if(this.medicines[this.i].id==medicine1.id)
+       {
+         do
+         {
+          this.medicines[this.i].id=this.medicines[this.i+1].id;
+          this.medicines[this.i].name=this.medicines[this.i+1].name;
+          this.medicines[this.i].price=this.medicines[this.i+1].price;
+          this.medicines[this.i].category=this.medicines[this.i+1].category;
+          this.medicines[this.i].price=this.medicines[this.i+1].price;
+          this.medicines[this.i].seller=this.medicines[this.i+1].seller;
+          this.medicines[this.i].url=this.medicines[this.i+1].url;
+          this.medicines[this.i].description=this.medicines[this.i+1].description;
+          this.i++;
+         }while(this.i<this.medicines.length)
+       }
+    }
+  }*/
+
+  getMedicines()
+  {
+    return this.medicines;
+  }
 
 }

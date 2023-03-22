@@ -23,12 +23,14 @@ newUser:Users=new Users();
 newaddress:Address=new Address();
 
 
+
   constructor(private router:Router,private medicareservice:MedicareService,
     private passingdataservice:PassingdataService) { }
   ngOnInit(): void {
     this.getAllMedicine();
     this.getAllUsers();
-    this.isUserLogin=false;
+    this.isUserLogin=true;
+    
     
  }
 
@@ -85,8 +87,14 @@ registerUser()
 
 
 });
+}
 
 
+addToCart(medicine:Medicine)
+{
+  console.log(medicine);
+  this.passingdataservice.addMedicine(medicine);
+  
 }
 
 }
