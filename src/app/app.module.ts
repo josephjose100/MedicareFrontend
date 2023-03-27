@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { MedicinelistComponent } from './medicinelist/medicinelist.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CartComponent } from './cart/cart.component';
+import { PaymentportalComponent } from './paymentportal/paymentportal.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,9 @@ import { CartComponent } from './cart/cart.component';
     UpdateComponent,
     HomeComponent,
     MedicinelistComponent,
-    CartComponent
+    CartComponent,
+    PaymentportalComponent,
+    ConfirmationComponent
   ],
   imports: [
     BrowserModule,

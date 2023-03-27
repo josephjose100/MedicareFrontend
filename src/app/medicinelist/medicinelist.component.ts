@@ -21,6 +21,7 @@ user:Users=new Users();
 pUser:Users=new Users;
 newUser:Users=new Users();
 newaddress:Address=new Address();
+cartMedicines:Medicine[]=[];
 
 
 
@@ -41,7 +42,7 @@ newaddress:Address=new Address();
       this.medicineinfo=data;
       
     });
-    console.log(this.medicineinfo);
+   
   }
 
 
@@ -50,7 +51,7 @@ newaddress:Address=new Address();
 
     this.medicareservice.GetAllUsers().subscribe(data =>{
       this.usersInfo=data;
-      console.log(this.usersInfo);
+      
     });
    
   }
@@ -92,9 +93,16 @@ registerUser()
 
 addToCart(medicine:Medicine)
 {
-  console.log(medicine);
+ // this.cartMedicines.push(medicine);
+ 
   this.passingdataservice.addMedicine(medicine);
+
   
+}
+
+goToCart()
+{
+  this.router.navigate([`cart`]);
 }
 
 }

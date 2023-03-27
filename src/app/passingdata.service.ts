@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Medicine } from './medicine';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +12,17 @@ export class PassingdataService {
   id:number;
   update:boolean;
   medicines:Medicine[]=[];
+  cost:number;
+
+  setCost(cost:number)
+  {
+    this.cost=cost;
+  }
  
+  getCost()
+  {
+    return this.cost;
+  }
 
   setId(id:number)
   {
@@ -36,7 +47,7 @@ export class PassingdataService {
   addMedicine(medicine:Medicine)
   {
     this.medicines.push(medicine);
-    console.log(medicine);
+    console.log(this.medicines);
   
   }
 
