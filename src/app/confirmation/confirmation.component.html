@@ -1,1 +1,41 @@
-<p>confirmation works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Purchase Details
+                </div>
+                <div class="card-body">
+                 <p>
+                    Products will be delivered to {{pUser.name}}, &nbsp; {{pUser.address.houseNo}},&nbsp;
+                    {{pUser.address.locality}},&nbsp;{{pUser.address.district}},&nbsp;{{pUser.address.state}}
+            
+                 </p>         <br/>
+                    Total price:{{totalCost}}
+                  <table>
+                        <tr *ngFor="let med of medicines">
+                            <td>
+                               <div class="card">
+                                <div class="card-header" style="text-align: center;">
+                                    {{med.name}}
+                                </div>
+                                <div class="card-body" style="text-align: center;">
+                                    <img src="{{med.url}}"/>
+                                    <br/>
+                                    Rs{{med.price}}/-
+                                </div>
+                               </div>                    
+                            </td>
+                        </tr>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <input type="button" class="btn btn-info" value="Home Page" (click)="goToHome()"/>
+        </div>
+    </div>
+</div>

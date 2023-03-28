@@ -30,7 +30,7 @@ cartMedicines:Medicine[]=[];
   ngOnInit(): void {
     this.getAllMedicine();
     this.getAllUsers();
-    this.isUserLogin=true;
+    this.isUserLogin=false;
     
     
  }
@@ -64,9 +64,11 @@ cartMedicines:Medicine[]=[];
       if((user1.name==this.user.name)&&(user1.password==this.user.password))
       {
         
-        this.pUser.id=this.user.id;
-        this.pUser.name=this.user.name;
-        this.pUser.password=this.user.password;
+        this.pUser.id=user1.id;
+        this.pUser.name=user1.name;
+        this.pUser.password=user1.password;
+        this.pUser.address=user1.address;
+        this.passingdataservice.setUser(this.pUser);
         this.isUserLogin=true;
         
       }   

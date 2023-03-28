@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Medicine } from './medicine';
+import { Users } from './users';
 
 
 @Injectable({
@@ -13,6 +14,18 @@ export class PassingdataService {
   update:boolean;
   medicines:Medicine[]=[];
   cost:number;
+  user:Users;
+
+  setUser(user:Users)
+  {
+    this.user=user;
+  }
+
+  getUser()
+  {
+    return this.user;
+  }
+
 
   setCost(cost:number)
   {
