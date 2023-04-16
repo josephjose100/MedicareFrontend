@@ -122,11 +122,9 @@
                                  <h3>Image</h3> 
                               </th>
                               <th>
-                                <h3>Update</h3> 
+                                <h3>Edit</h3> 
                              </th>
-                             <th>
-                                <h3>Delete</h3> 
-                             </th>
+                            
                         </tr>
                         <tr *ngFor="let medicine of medicineinfo" >
                             <td>{{medicine.name}}</td>
@@ -137,10 +135,16 @@
                             <td><img class="images" src="{{medicine.url}}" width="200" height="200"></td>
                             <td>
                                 <input type="button" class="btn btn-info" value="update" (click)="updateItem(medicine.id)"/>
-                            </td>
-                            <td>
+                            <br/>
                                 <input type="button" class="btn btn-outline-danger" value="delete" (click)=" deleteItem(medicine.id)"/>
+                                
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" [(ngModel)]="medicine.available" (change)="enableDisable(medicine.id)"/>
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Enable/Disable</label>
+                                  </div>
+                                
                             </td>
+                            
                         </tr>
                     </table>
                 </div>

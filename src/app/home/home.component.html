@@ -2,19 +2,14 @@
 
 <div class="container-fluid" style="background-color: cyan;">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" [routerLink]="['/medicine']" style="color:black;">Buy Medicine</a>
+                  <a class="nav-link active" aria-current="page" [routerLink]="['/medicine']" style="color:black;"><h4>Click here to buy medicines</h4></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" [routerLink]="['/login']" style="color: black;">Admin</a>
-                
-                </li>
-               
               </ul>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-8">
             <div class="card" style="border: none;">
                 <div class="card-header" style="background-color:cyan;border: none;">
                     <h1 style="text-align: center;color:black;">Medicare</h1>
@@ -47,36 +42,17 @@
 
             
         </div>
-        <div class="col-md-3">
+        <div class="col-md-1">
+          <ul class="nav flex-column">
+          
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" [routerLink]="['/login']" style="color: black;">Admin</a>
+            
+            </li>
            
-                <h3 style="color: black;">Most Selled Products </h3>
-                <br/>
-           
-                    <div class="card" style="background-color: cyan;text-align: center;border-color:darkcyan;">
-                       
-                        <div class="card-body" style="border-color:black ;background-color: cyan;text-align: center;">
-                            
-                                    
-                                        <img class="images" src="{{medicineinfo[0].url}}" width="200" height="200">
-                               
-                                    
-                                      <h4>{{medicineinfo[0].name}}</h4>
-                            
-                        </div>
-                        </div>
-                        <div class="card" style="background-color: cyan;text-align: center;border-color:darkcyan;">
-                       
-                            <div class="card-body" style="border-color:black ;background-color: cyan;text-align: center;">
-                                
-                                        
-                                            <img class="images" src="{{medicineinfo[1].url}}" width="200" height="200">
-                                   
-                                        
-                                          <h4>{{medicineinfo[1].name}}</h4>
-                                
-                            </div>
-                            </div>
-                </div>
+          </ul>
+        </div>
+      
             </div>
         </div>
 

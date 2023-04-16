@@ -125,6 +125,12 @@ deleteItem(id:number)
     this.router.navigate([`update`]);
   }
 
+  enableDisable(id:number)
+  {
+    console.log(id);
+ 
+  }
+
 
 }
 

@@ -5,6 +5,6 @@ export class Medicine {
 	 price:number;
 	 seller:string;
 	 description:string;
-	 available:number;
+	 available:boolean;
 	 url:string;
 }
