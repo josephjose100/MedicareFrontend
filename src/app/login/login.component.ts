@@ -128,6 +128,19 @@ deleteItem(id:number)
   enableDisable(id:number)
   {
     console.log(id);
+    for(let medicine of this.medicineinfo)
+    {
+      console.log(medicine.id);
+      if(medicine.id==id)
+      {
+        this.medicareservice.enableDisable(medicine).subscribe(data=>{
+        this.getAllMedicine();
+
+        });
+
+      }
+    }
+   
  
   }
 

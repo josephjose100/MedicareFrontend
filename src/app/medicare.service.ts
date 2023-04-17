@@ -45,5 +45,10 @@ export class MedicareService {
     return this.httpclient.post(`${this.baseUrl}/users`,user);
    }
 
+
+enableDisable(medicine:Medicine):Observable<Object>{
+
+  return this.httpclient.post(`${this.baseUrl}/enable`,medicine);
+}
   
 }

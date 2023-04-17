@@ -9,7 +9,7 @@
                 <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Search Items">
               </div>
             <ol style="text-align: center;">
-                <li *ngFor="let medicine of medicineinfo | filter:searchText"> 
+                <li *ngFor="let medicine of medicineinfo1 | filter:searchText"> 
                     <div class="card" style="border: none;">
                         <div class="card-body" style="border: none;">  
                             <img class="images" src="{{medicine.url}}" width="200" height="200">    

@@ -14,6 +14,7 @@ import { Users } from '../users';
 export class MedicinelistComponent implements OnInit{
   
 medicineinfo:Medicine[];
+medicineinfo1:Medicine[]=[];
 searchText:any;
 usersInfo:Users[];
 isUserLogin:boolean;
@@ -28,9 +29,11 @@ cartMedicines:Medicine[]=[];
   constructor(private router:Router,private medicareservice:MedicareService,
     private passingdataservice:PassingdataService) { }
   ngOnInit(): void {
+
     this.getAllMedicine();
     this.getAllUsers();
     this.isUserLogin=false;
+    
     
     
  }
@@ -40,6 +43,13 @@ cartMedicines:Medicine[]=[];
 
     this.medicareservice.GetAllMedicine().subscribe(data =>{
       this.medicineinfo=data;
+      for(let medicine of this.medicineinfo)
+    {
+      if(medicine.available==true)
+      {
+        this.medicineinfo1.push(medicine);
+      }
+    }
       
     });
    
