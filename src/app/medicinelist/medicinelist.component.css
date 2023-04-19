@@ -31,7 +31,28 @@ ol li{
     margin:auto;
   }
   
- 
   .form-control::placeholder  {
     font-family: FontAwesome;
   }
+
+  h3,h1{
+    text-align: center;
+  }
+
+  h1{
+    color: black;
+  }
+
+h3{
+  color: midnightblue;
+}
+
+:host {
+  font-style: italic;
+ 
+}
+
+p{
+  color: red;
+}
+

@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit{
   pAdmin:Admin=new Admin();
   selectedFile:File;
   medicineinfo:Medicine[];
+  new:boolean;
   constructor(private router:Router,private medicareservice:MedicareService,
     private passingdataservice:PassingdataService) { }
 
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit{
      this.isLogin=true;
      this.getAllAdmins();
      this.getAllMedicine();
+     this.new=true;
   }
 
   getAllAdmins()
@@ -142,6 +144,11 @@ deleteItem(id:number)
     }
    
  
+  }
+
+  update()
+  {
+    this.new=false;
   }
 
 

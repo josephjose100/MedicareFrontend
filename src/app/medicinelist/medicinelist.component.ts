@@ -23,6 +23,8 @@ pUser:Users=new Users;
 newUser:Users=new Users();
 newaddress:Address=new Address();
 cartMedicines:Medicine[]=[];
+err:string="";
+regResponse:string="";
 
 
 
@@ -81,7 +83,11 @@ cartMedicines:Medicine[]=[];
         this.passingdataservice.setUser(this.pUser);
         this.isUserLogin=true;
         
-      }   
+      }  
+      else
+      {
+        this.err="Please check the credentials";
+      } 
   }
 }
 
@@ -100,6 +106,7 @@ registerUser()
 
 
 });
+this.regResponse="New user registered";
 }
 
 

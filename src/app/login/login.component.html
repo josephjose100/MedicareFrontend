@@ -43,117 +43,128 @@
     </div>
 </div>
 <div *ngIf="isLogin">
-<div class="container-fluid">
-    <div class="row">
-        
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <form #frmNew="ngForm" (ngSubmit)="addMedicine(frmNew)">
-                  <table class="table table-light">
-                    <tr>
-                        <th>
-                           <h3>Name</h3> 
-                        </th>
-                        <th>
-                            <h3>Category</h3> 
-                         </th>
-                         <th>
-                            <h3>Price</h3> 
-                         </th>
-                         <th>
-                            <h3>Seller</h3> 
-                         </th>
-                         <th>
-                            <h3>Description</h3> 
-                         </th>
-                         <th>
-                            <h3>Image</h3> 
-                         </th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="text" name="name" class="form-control" [(ngModel)]="medicine.name" required/>
-                        </td>
-                        <td>
-                            <input type="text" name="category" class="form-control" [(ngModel)]="medicine.category" required/>
-                        </td>
-                        <td>
-                            <input type="text" name="price" class="form-control" [(ngModel)]="medicine.price" required/>
-                        </td>
-                        <td>
-                            <input type="text" name="seller" class="form-control" [(ngModel)]="medicine.seller" required/>
-                        </td>
-                        <td>
-                            <input type="text" name="description" class="form-control" [(ngModel)]="medicine.description" required/>
-                        </td>
-                        <td>
-                           <input type="file" value="select" #selectFile (change)="onFileSelected($event)">
-                        </td>
-                        <input type="submit" value="Add Product"/>
-                    </tr>
-                  </table> 
-                  </form>             
+    <div *ngIf="new">
+
+        <div class="container-fluid" style="height: 100vh;background-color:beige;">
+            <div class="row" style="height: 20vh;">
+               <div class="col-md-3"></div>
+               <div class="col-md-6"><h1>Medicare</h1></div>
+               <div class="col-md-3" style="padding-top: 1%;text-align: center;"><button class="btn btn-primary" (click)="update()">Admin Operations</button></div>
+            </div>
+            <div class="row" style="height: 80vh;">
+                
+                <div class="col-md-12">
+                    
+                    
+                            <table class="table table-light" style="text-align: center;width: 100%;">
+                                <tr style="background-color: beige;">
+                                    <th >
+                                        <h3>Name</h3> 
+                                     </th>
+                                     <th>
+                                         <h3>Category</h3> 
+                                      </th>
+                                      <th>
+                                         <h3>Price</h3> 
+                                      </th>
+                                      <th>
+                                         <h3>Seller</h3> 
+                                      </th>
+                                      <th>
+                                         <h3>Description</h3> 
+                                      </th>
+                                      <th>
+                                         <h3>Image</h3> 
+                                      </th>
+                                      <th>
+                                        <h3>Edit</h3> 
+                                     </th>
+                                    
+                                </tr>
+                                <tr *ngFor="let medicine of medicineinfo" >
+                                    <td style="text-align: center;">
+                                        
+                                    
+                                        <div class="form-check form-switch" style="text-align: center;padding-left: 50px;">
+                                            <input class="form-check-input" style="text-align: center;" type="checkbox" role="switch" [(ngModel)]="medicine.available" (change)="enableDisable(medicine.id)"/>
+                                            <label class="form-check-label" for="flexSwitchCheckDefault">{{medicine.name}}</label>
+                                          </div>
+                                    </td>
+                                    <td>{{medicine.category}}</td>
+                                    <td>{{medicine.price}}</td>
+                                    <td>{{medicine.seller}}</td>
+                                    <td>{{medicine.description}}</td> 
+                                    <td><img class="images" src="{{medicine.url}}" width="200" height="200"></td>
+                                    <td>
+                                        <input type="button" class="btn btn-info" value="update" (click)="updateItem(medicine.id)"/>
+                                    <br/>
+                                        <input type="button" class="btn btn-outline-danger" value="delete" (click)=" deleteItem(medicine.id)"/>
+                                           
+                                    </td>
+                                    
+                                </tr>
+                            </table>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-header">
-                    Medicine Details
-                </div>
-                <div class="card-body">
-                    <table class="table table-light" style="text-align: center;">
+        </div>
+    </div>
+    <div *ngIf="!new">
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form #frmNew="ngForm" (ngSubmit)="addMedicine(frmNew)">
+                      <table class="table table-light">
                         <tr>
-                            <th >
-                                <h3>Name</h3> 
+                            <th>
+                               <h3>Name</h3> 
+                            </th>
+                            <th>
+                                <h3>Category</h3> 
                              </th>
                              <th>
-                                 <h3>Category</h3> 
-                              </th>
-                              <th>
-                                 <h3>Price</h3> 
-                              </th>
-                              <th>
-                                 <h3>Seller</h3> 
-                              </th>
-                              <th>
-                                 <h3>Description</h3> 
-                              </th>
-                              <th>
-                                 <h3>Image</h3> 
-                              </th>
-                              <th>
-                                <h3>Edit</h3> 
+                                <h3>Price</h3> 
                              </th>
-                            
+                             <th>
+                                <h3>Seller</h3> 
+                             </th>
+                             <th>
+                                <h3>Description</h3> 
+                             </th>
+                             <th>
+                                <h3>Image</h3> 
+                             </th>
                         </tr>
-                        <tr *ngFor="let medicine of medicineinfo" >
-                            <td>{{medicine.name}}</td>
-                            <td>{{medicine.category}}</td>
-                            <td>{{medicine.price}}</td>
-                            <td>{{medicine.seller}}</td>
-                            <td>{{medicine.description}}</td> 
-                            <td><img class="images" src="{{medicine.url}}" width="200" height="200"></td>
+                        <tr>
                             <td>
-                                <input type="button" class="btn btn-info" value="update" (click)="updateItem(medicine.id)"/>
-                            <br/>
-                                <input type="button" class="btn btn-outline-danger" value="delete" (click)=" deleteItem(medicine.id)"/>
-                                
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch" [(ngModel)]="medicine.available" (change)="enableDisable(medicine.id)"/>
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Enable/Disable</label>
-                                  </div>
-                                
+                                <input type="text" name="name" class="form-control" [(ngModel)]="medicine.name" required/>
                             </td>
-                            
+                            <td>
+                                <input type="text" name="category" class="form-control" [(ngModel)]="medicine.category" required/>
+                            </td>
+                            <td>
+                                <input type="text" name="price" class="form-control" [(ngModel)]="medicine.price" required/>
+                            </td>
+                            <td>
+                                <input type="text" name="seller" class="form-control" [(ngModel)]="medicine.seller" required/>
+                            </td>
+                            <td>
+                                <input type="text" name="description" class="form-control" [(ngModel)]="medicine.description" required/>
+                            </td>
+                            <td>
+                               <input type="file" value="select" #selectFile (change)="onFileSelected($event)">
+                            </td>
+                            <input type="submit" value="Add Product"/>
                         </tr>
-                    </table>
+                      </table> 
+                      </form>             
+                    </div>
                 </div>
             </div>
-
-            
-
         </div>
-        
+      </div>
+
     </div>
-</div>
+
 </div>

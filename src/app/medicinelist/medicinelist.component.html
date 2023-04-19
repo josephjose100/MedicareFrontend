@@ -26,12 +26,18 @@
 </div>
 </div>
 <div *ngIf="!isUserLogin">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-5">
+    <div class="container-fluid" style="height: 100vh;background-color: cyan;">
+       <div class="row" style="height: 20vh;">
+         <div class="col-md-12">
+            <h1>Medicare</h1>
+         </div>
+       </div>
+        <div class="row" style="height: 80vh;" >
+            <div class="col-md-1"></div>
+            <div class="col-md-4" style="padding-top: 10px;">
                 <div class="card">
                     <div class="card-header">
-                       <h3>User Login</h3>   
+                       <h3>Login to purchase products</h3>   
                     </div>
                     <div class="card-body" style="text-align: center;">
                         <form #frmLogin="ngForm">
@@ -58,74 +64,87 @@
                        </table>
                        <input type="button" class="btn btn-primary" value="Login" [disabled]="frmLogin.form.invalid" (click)="validateCredentials()"/>
                     </form>
-                    
+                    <p>{{err}}</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-2"></div>
-            <div class="col-md-5">
+            <div class="col-md-4" style="background-color: cyan;padding-top: 10px;">
                 <form #frmRegister="ngForm">
-                    <table class="table table-light">
-                     <tr>
-                         <td style="text-align: center;">
-                             User Name:
-                         </td>
-                         <td>
-                            
-                     <input type="text" name="name" class="form-control" [(ngModel)]="newUser.name" required/>
-                 </td> 
-                    </tr>
-                     <tr>
-                         <td style="text-align: center;">
-                             Password:
-                         </td>
-                         <td>
-                            
-                     <input type="password" name="password" class="form-control" [(ngModel)]="newUser.password" required/>
-                 </td>
-                     </tr> 
-                     <tr>
-                        <td style="text-align: center;">
-                            House No:
-                        </td>
-                        <td>
-                           
-                    <input type="text" name="houseno" class="form-control" [(ngModel)]="newaddress.houseNo" required/>
-                </td>
-                    </tr> 
-                    <tr>
-                        <td style="text-align: center;">
-                           Locality:
-                        </td>
-                        <td>
-                           
-                    <input type="text" name="locality" class="form-control" [(ngModel)]="newaddress.locality" required/>
-                </td>
-                    </tr> 
-                    <tr>
-                        <td style="text-align: center;">
-                            District:
-                        </td>
-                        <td>
-                           
-                    <input type="text" name="district" class="form-control" [(ngModel)]="newaddress.district" required/>
-                </td>
-                    </tr> 
-                    <tr>
-                        <td style="text-align: center;">
-                            State:
-                        </td>
-                        <td>
-                           
-                    <input type="text" name="state" class="form-control" [(ngModel)]="newaddress.state" required/>
-                </td>
-                    </tr> 
-                       
-                    </table>
-                    <input type="button" class="btn btn-primary" value="Login" [disabled]="frmRegister.form.invalid" (click)="registerUser()"/>
-                 </form>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Register new user</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-light">
+                                <tr>
+                                    <td style="text-align: center;">
+                                        User Name:
+                                    </td>
+                                    <td>
+                                       
+                                <input type="text" name="name" class="form-control" [(ngModel)]="newUser.name" required/>
+                            </td> 
+                               </tr>
+                                <tr>
+                                    <td style="text-align: center;">
+                                        Password:
+                                    </td>
+                                    <td>
+                                       
+                                <input type="password" name="password" class="form-control" [(ngModel)]="newUser.password" required/>
+                            </td>
+                                </tr> 
+                                <tr>
+                                   <td style="text-align: center;">
+                                       House No:
+                                   </td>
+                                   <td>
+                                      
+                               <input type="text" name="houseno" class="form-control" [(ngModel)]="newaddress.houseNo" required/>
+                           </td>
+                               </tr> 
+                               <tr>
+                                   <td style="text-align: center;">
+                                      Locality:
+                                   </td>
+                                   <td>
+                                      
+                               <input type="text" name="locality" class="form-control" [(ngModel)]="newaddress.locality" required/>
+                           </td>
+                               </tr> 
+                               <tr>
+                                   <td style="text-align: center;">
+                                       District:
+                                   </td>
+                                   <td>
+                                      
+                               <input type="text" name="district" class="form-control" [(ngModel)]="newaddress.district" required/>
+                           </td>
+                               </tr> 
+                               <tr>
+                                   <td style="text-align: center;">
+                                       State:
+                                   </td>
+                                   <td>
+                                      
+                               <input type="text" name="state" class="form-control" [(ngModel)]="newaddress.state" required/>
+                           </td>
+                               </tr> 
+                                  
+                               </table>
+                               <input type="button" class="btn btn-primary" value="Register" [disabled]="frmRegister.form.invalid" (click)="registerUser()"/>
+                           <p>{{regResponse}}</p>
+
+
+                        </div>
+                    </div>
+               
+                    </form>
 
             </div>
+            <div class="col-md-1"></div>
         </div>
     </div>
     </div>
