@@ -9,13 +9,15 @@
                 <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Search Items">
               </div>
             <ol style="text-align: center;">
+                <p>{{num}}&nbsp;{{itemAdded}}</p>
                 <li *ngFor="let medicine of medicineinfo1 | filter:searchText"> 
                     <div class="card" style="border: none;">
                         <div class="card-body" style="border: none;">  
                             <img class="images" src="{{medicine.url}}" width="200" height="200">    
                             <h3 style="color: darkblue;">{{medicine.name}}</h3>
                             <h4>Rs&nbsp;{{medicine.price}}/-</h4>  
-                            <input type="button" class="btn btn-primary" value="Add to cart" (click)="addToCart(medicine)"/>  
+                            <input type="button" class="btn btn-primary" value="Add to cart" (click)="addToCart(medicine)"   />  
+                            
                          </div>
                         </div>
                 </li>

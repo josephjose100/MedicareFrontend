@@ -25,8 +25,8 @@ newaddress:Address=new Address();
 cartMedicines:Medicine[]=[];
 err:string="";
 regResponse:string="";
-
-
+itemAdded:string="Item added to cart";
+num:number=0;
 
   constructor(private router:Router,private medicareservice:MedicareService,
     private passingdataservice:PassingdataService) { }
@@ -115,6 +115,8 @@ addToCart(medicine:Medicine)
  // this.cartMedicines.push(medicine);
  
   this.passingdataservice.addMedicine(medicine);
+  this.num++;
+  
 
   
 }
