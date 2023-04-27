@@ -1,11 +1,13 @@
-<div class="container-fluid">
+<div class="container-fluid" style="background-color: cyan;height: 100%;min-height: 100vh;">
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            <table>
-                <tr *ngFor="let med of medicines">
-                    <td>
-                       <div class="card">
+            <h1>Medicare</h1>
+            <h2>Cart</h2>
+            <table style="text-align: center;width: 100%;">
+                <tr *ngFor="let med of medicines" style="text-align: center;width: 100%;">
+                    <td style="text-align: center;">
+                       <div class="card" style="text-align: center;">
                         <div class="card-header" style="text-align: center;">
                             {{med.name}}
                         </div>
@@ -19,7 +21,7 @@
                 </tr>
             </table>
             <div class="card">
-                <div class="card-body">
+                <div class="card-body" style="text-align: center;">
                     Total Cost:{{totalCost}}
                     <br/>
                     <input type ="button" class="btn btn-danger" value="Proceed to Pay" (click)="proceedToPay()" />

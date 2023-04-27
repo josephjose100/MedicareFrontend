@@ -1,22 +1,24 @@
-<div class="container-fluid">
+<div class="container-fluid" style="background-color: cyan;height: 100vh;">
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
+            <h1>Payment Portal</h1>
             <div class="card">
                 <div class="card-header" style="text-align: center;">
                     Credit Card Details
                 </div>
-                <div class="card-body">
-                    <form #frmLogin="ngForm">
-                        Card Holder Name:<input type="text" class="form-control"/>
+                <div class="card-body" >
+                    <form #frmPay="ngForm">
+                        Card Holder Name:<input type="text" name="name" class="form-control" [(ngModel)]="name" required/>
                         <br/>
-                        Card Number:<input type="number" class="form-control" />
+                        Card Number:<input type="number" name="number" class="form-control" [(ngModel)]="number" required/>
                         <br/>
-                        Expiry Date:<input type="date" class="form-control" />
+                        Expiry Date:<input type="date" name="date" class="form-control" [(ngModel)]="date" required/>
                         <br/>
-                        CVV:<input type="number" class="form-control"/>
+                        CVV:<input type="number" name="cvv" class="form-control" [(ngModel)]="cvv" required/>
                         <br/>
-                        <input type="buton" class="btn btn-danger" value="Pay" (click)="goToConfirmation()"/>
+                        <input type="button" class="btn btn-primary" value="Pay" [disabled]="frmPay.form.invalid" (click)="goToConfirmation()" />
+                        
                     </form> 
                 </div>
             </div>

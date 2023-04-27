@@ -34,7 +34,7 @@ num:number=0;
 
     this.getAllMedicine();
     this.getAllUsers();
-    this.isUserLogin=false;
+    this.isUserLogin=true;
     
     
     

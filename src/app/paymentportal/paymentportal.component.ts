@@ -12,7 +12,10 @@ export class PaymentportalComponent implements OnInit{
   constructor(private router:Router,private passingdataservice:PassingdataService){}
 
   totalCost:number;
-  
+  name:string;
+  number:number;
+  date:Date;
+  cvv:number;
 
   ngOnInit(): void {
     
