@@ -13,7 +13,7 @@ export class PaymentportalComponent implements OnInit{
 
   totalCost:number;
   name:string;
-  number:number;
+  cardno:number;
   date:Date;
   cvv:number;
 

@@ -1,9 +1,10 @@
 <div *ngIf="!isLogin">
-    <div class="container-fluid">
+    <div class="container-fluid" style="background-color: cyan;height: 100%;min-height: 100vh;">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <div class="card">
+                <h1>Medicare</h1>
+                <div class="card" style="background-color: beige;display: flex;align-items: center;justify-content: center;top: 50%;">
                     <div class="card-header">
                        <h1 style="text-align: center;">Admin Login</h1> 
                     </div>
@@ -56,7 +57,7 @@
                 <div class="col-md-12">
                     
                     
-                            <table class="table table-light" style="text-align: center;width: 100%;">
+                            <table class="table table-light" style="text-align: center;width: 100%;height: 100%;">
                                 <tr style="background-color: beige;">
                                     <th >
                                         <h3>Name</h3> 
@@ -109,14 +110,21 @@
         </div>
     </div>
     <div *ngIf="!new">
-      <div class="container-fluid">
+      <div class="container-fluid" style="background-color: cyan;min-height: 100vh;height: 100%;">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
+                <h1>Medicare</h1>
+                <div style="text-align: right;">
+                    <input type="button" class="btn btn-primary" value="Back" (click)="goBack()" />
+                </div>
+                  <div class="card" style="text-align: center;background-color: beige;">
+                    <div class="card-header" style="text-align: center;">
+                        New Medicine
+                    </div>
+                    <div class="card-body" style="background-color: beige;">
                         <form #frmNew="ngForm" (ngSubmit)="addMedicine(frmNew)">
                       <table class="table table-light">
-                        <tr>
+                        <tr style="background-color: beige;">
                             <th>
                                <h3>Name</h3> 
                             </th>
@@ -155,7 +163,7 @@
                             <td>
                                <input type="file" value="select" #selectFile (change)="onFileSelected($event)">
                             </td>
-                            <input type="submit" value="Add Product"/>
+                            <input type="submit" value="Add Product" class="btn btn-primary" [disabled]="frmNew.form.invalid || fileSelected"/>
                         </tr>
                       </table> 
                       </form>             

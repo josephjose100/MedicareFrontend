@@ -46,9 +46,9 @@
                                 <input type="text" name="description" class="form-control" [(ngModel)]="medicine.description" required/>
                             </td>
                             <td>
-                               <input type="file" value="select" #selectFile (change)="onFileSelected($event)">
+                               <input type="file" name="fileSelect" value="select" #selectFile (change)="onFileSelected($event)" required/>
                             </td>
-                            <input type="submit" value="Add Product"/>
+                            <input type="submit" value="Add Product" class="btn btn-primary" [disabled]="frmNew.form.invalid || fileSelected"/>
                         </tr>
                     </table>
                     </form>

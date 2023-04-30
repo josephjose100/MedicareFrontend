@@ -1,8 +1,9 @@
 <div *ngIf="isUserLogin">
-<div class="container-fluid">
+<div class="container-fluid" style="background-color: beige;min-height: 100vh;height: 100%;">
     <div class="row">
         <div class="col-md-2">
-           <input type="button" class="btn btn-primary" value="Go To Cart" (click)="goToCart()"/>
+           <input type="button" class="btn btn-primary" value="Go To Cart" (click)="goToCart()" [disabled]="cart"/>
+           <p>{{num}}&nbsp;{{itemAdded}}</p>
         </div>
         <div class="col-md-8">
             <h1>Medicare</h1>
@@ -10,9 +11,9 @@
                 <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Search Items">
               </div>
             <ol style="text-align: center;">
-                <p>{{num}}&nbsp;{{itemAdded}}</p>
+               
                 <li *ngFor="let medicine of medicineinfo1 | filter:searchText"> 
-                    <div class="card" style="border: none;">
+                    <div class="card" style="border: none;background-color: beige;">
                         <div class="card-body" style="border: none;">  
                             <img class="images" src="{{medicine.url}}" width="200" height="200">    
                             <h3 style="color: darkblue;">{{medicine.name}}</h3>

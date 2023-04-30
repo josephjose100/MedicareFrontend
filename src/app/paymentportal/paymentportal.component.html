@@ -9,14 +9,25 @@
                 </div>
                 <div class="card-body" >
                     <form #frmPay="ngForm">
-                        Card Holder Name:<input type="text" name="name" class="form-control" [(ngModel)]="name" required/>
+                        Card Holder Name:<input type="text" name="name" class="form-control" [(ngModel)]="name" pattern="[A-Za-z]*" #cardname="ngModel" required/>
                         <br/>
-                        Card Number:<input type="number" name="number" class="form-control" [(ngModel)]="number" required/>
+                        <span class="error" *ngIf="cardname.touched && cardname.invalid">
+                            Invalid Credit Card Name
+                        </span>
+                        <br/>
+                        Card Number:<input type="text" class="form-control" name="cardno" minlength="16" maxlength="16" pattern="[0-9]*" [(ngModel)]="cardno" #cardn="ngModel" required/>
+                        <br/>
+                        <span class="error" *ngIf="cardn.touched && cardn.invalid">
+                            Invalid Credit Card Number
+                        </span>
                         <br/>
                         Expiry Date:<input type="date" name="date" class="form-control" [(ngModel)]="date" required/>
                         <br/>
-                        CVV:<input type="number" name="cvv" class="form-control" [(ngModel)]="cvv" required/>
+                        CVV:<input type="text" class="form-control" name="cvv" minlength="3" maxlength="3" pattern="[0-9]*" [(ngModel)]="cvv" #ccvv="ngModel" required/>
                         <br/>
+                        <span class="error" *ngIf="ccvv.touched && ccvv.invalid">
+                            Invalid cvv
+                        </span> <br/>
                         <input type="button" class="btn btn-primary" value="Pay" [disabled]="frmPay.form.invalid" (click)="goToConfirmation()" />
                         
                     </form> 

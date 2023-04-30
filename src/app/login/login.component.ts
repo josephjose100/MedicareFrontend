@@ -24,14 +24,16 @@ export class LoginComponent implements OnInit{
   selectedFile:File;
   medicineinfo:Medicine[];
   new:boolean;
+  fileSelected:boolean;
   constructor(private router:Router,private medicareservice:MedicareService,
     private passingdataservice:PassingdataService) { }
 
   ngOnInit(): void {
-     this.isLogin=true;
+     this.isLogin=this.passingdataservice.getIsLogin();
      this.getAllAdmins();
      this.getAllMedicine();
      this.new=true;
+     this.fileSelected=true;
   }
 
   getAllAdmins()
@@ -70,7 +72,8 @@ export class LoginComponent implements OnInit{
         this.pAdmin.id=admin.id;
         this.pAdmin.name=this.name;
         this.pAdmin.password=this.password;
-        this.isLogin=true;
+        this.passingdataservice.setIsLogin(true);
+        this.isLogin=this.passingdataservice.getIsLogin();
         
       }   
   }
@@ -81,6 +84,7 @@ onFileSelected(event:any)
  if(event.target.files)
  {
    this.selectedFile=event.target.files[0];
+   this.fileSelected=false;
    
  }
 }
@@ -102,6 +106,7 @@ addMedicine(frmNew:NgForm)
      this.medicine.description="";
      this.medicine.url="";
      this.medicine.seller="";
+     this.new=true;
 
    
    });
@@ -151,7 +156,10 @@ deleteItem(id:number)
     this.new=false;
   }
 
-
+  goBack()
+  {
+    this.new=true;
+  }
 }
 
 

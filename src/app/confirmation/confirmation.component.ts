@@ -23,6 +23,7 @@ export class ConfirmationComponent implements OnInit{
     this.medicines=this.passingdataservice.getMedicines();
     this.totalCost=this.passingdataservice.getCost();
     this.pUser=this.passingdataservice.getUser();
+    
 
 
   }

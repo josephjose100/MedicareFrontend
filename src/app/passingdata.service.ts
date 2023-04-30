@@ -15,6 +15,17 @@ export class PassingdataService {
   medicines:Medicine[]=[];
   cost:number;
   user:Users;
+  isLogin:boolean=false;
+
+  setIsLogin(isLogin:boolean)
+  {
+    this.isLogin=isLogin;
+  }
+
+  getIsLogin()
+  {
+    return this.isLogin;
+  }
 
   setUser(user:Users)
   {

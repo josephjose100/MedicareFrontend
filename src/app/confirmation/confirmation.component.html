@@ -1,22 +1,26 @@
-<div class="container-fluid">
+<div class="container-fluid" style="background-color: cyan;min-height: 100vh;height: 100%;">
     <div class="row">
-        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <input type="button" class="btn btn-primary" value="Home Page" (click)="goToHome()"/>
+     
+        </div>
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
+            <h1>Medicare</h1>
+            <div class="card" style="background-color: beige;text-align: center;">
+                <div class="card-header" style="text-align: center;">
                     Purchase Details
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="text-align: center;">
                  <p>
                     Products will be delivered to {{pUser.name}}, &nbsp; {{pUser.address.houseNo}},&nbsp;
                     {{pUser.address.locality}},&nbsp;{{pUser.address.district}},&nbsp;{{pUser.address.state}}
             
                  </p>         <br/>
                     Total price:{{totalCost}}
-                  <table>
-                        <tr *ngFor="let med of medicines">
-                            <td>
-                               <div class="card">
+                  <table style="text-align: center;width: 100%;">
+                        <tr *ngFor="let med of medicines" style="text-align: center;width: 100%;">
+                            <td style="text-align: center;">
+                               <div class="card" style="text-align: center;">
                                 <div class="card-header" style="text-align: center;">
                                     {{med.name}}
                                 </div>
@@ -35,7 +39,6 @@
             </div>
         </div>
         <div class="col-md-3">
-            <input type="button" class="btn btn-info" value="Home Page" (click)="goToHome()"/>
-        </div>
+               </div>
     </div>
 </div>

@@ -27,6 +27,7 @@ err:string="";
 regResponse:string="";
 itemAdded:string="Item added to cart";
 num:number=0;
+cart:boolean;
 
   constructor(private router:Router,private medicareservice:MedicareService,
     private passingdataservice:PassingdataService) { }
@@ -34,8 +35,8 @@ num:number=0;
 
     this.getAllMedicine();
     this.getAllUsers();
-    this.isUserLogin=true;
-    
+    this.isUserLogin=false;
+    this.cart=true;
     
     
  }
@@ -116,9 +117,7 @@ addToCart(medicine:Medicine)
  
   this.passingdataservice.addMedicine(medicine);
   this.num++;
-  
-
-  
+  this.cart=false;
 }
 
 goToCart()

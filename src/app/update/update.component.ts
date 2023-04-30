@@ -15,10 +15,13 @@ export class UpdateComponent implements OnInit{
   medicine:Medicine=new Medicine();
   selectedFile:File;
   update:boolean=false;
+  fileSelected:boolean;
+
 
   ngOnInit(): void {
     this.medicine.id=this.passingdataservice.getId();
     this.update=this.passingdataservice.getUpdate();
+    this.fileSelected=true;
   }
 
   constructor(private router:Router,private medicareservice:MedicareService,
@@ -30,6 +33,7 @@ onFileSelected(event:any)
  if(event.target.files)
  {
    this.selectedFile=event.target.files[0];
+   this.fileSelected=false;
    
  }
 }
